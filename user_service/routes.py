@@ -1,4 +1,3 @@
-# user_service/routes.py
 from flask import Blueprint, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, get_jwt
@@ -115,6 +114,6 @@ def profile():
         return jsonify({
             "name": user['name'],
             "email": user['email'],
-            "role": claims.get('role')  # Get the user's role from the token claims
+            "role": claims.get('role')  
         }), 200
     return jsonify({"message": "User not found"}), 404
