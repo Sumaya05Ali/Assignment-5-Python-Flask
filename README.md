@@ -96,7 +96,71 @@ Response:
  {
   "access_token": "<JWT_TOKEN>"
 }
- ```
+```
+3. View Profile
+  - Endpoint: /users/profile
+  - Method: GET
+  - Headers:
+    ```bash
+     Authorization: Bearer <JWT_TOKEN>
+    ```
+ Response:
+```bash
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "role": "User"
+}   
+```
+4. Get All Destinations
+   - Endpoint: /destinations
+   - Method: GET
+   - Response:
+   ```bash
+   [
+    {
+      "id": 1,
+      "name": "Paris",
+      "description": "City of Light",
+      "location": "France"
+    },
+    {
+     "id": 2,
+     "name": "Berlin",
+     "description": "Capital of Germany",
+     "location": "Germany"
+    }
+   ]
+
+   ```
+  5. Delete a Destination (Admin Only)
+     - Endpoint: /destinations/1
+     - Method: DELETE
+     - Headers:
+        ```bash
+        Authorization: Bearer <JWT_TOKEN> (Admin only)
+        ```
+   Response:
+   ```bash
+    {   
+  "message": "Destination deleted successfully"
+    } 
+   ```     
+## Running Tests
+To run unit tests for the API, use the following command:
+  ```bash
+     python -m unittest discover -s tests
+  ```
+The tests cover various cases such as:
+
+- User registration and login
+- Token-based profile access
+- Role-based access control (Admin and User roles)
+- Destination management (add, delete)
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+   
 
 
 
