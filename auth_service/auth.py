@@ -1,4 +1,3 @@
-# auth_service/auth.py
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt
 from werkzeug.security import check_password_hash
