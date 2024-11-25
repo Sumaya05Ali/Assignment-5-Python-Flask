@@ -4,7 +4,7 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flasgger import Swagger
 
-# Add parent directory to system path for imports to work
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from auth import auth_bp  # Import the authentication blueprint
