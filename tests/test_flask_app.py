@@ -3,21 +3,21 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from flask import Flask, jsonify
-from app import create_app  # Import your Flask app factory
+from app import create_app  
 from flask_jwt_extended import create_access_token
 
 class FlaskTestCase(unittest.TestCase):
     def setUp(self):
-        app = create_app()  # Call your Flask app factory function
+        app = create_app() 
         self.app = app.test_client()
-        self.app_context = app.app_context()  # Get the application context
-        self.app_context.push()  # Push the context onto the context stack
+        self.app_context = app.app_context() 
+        self.app_context.push() 
 
-        # Now it's safe to create the access token
+
         self.admin_token = create_access_token(identity={"email": "admin@test.com", "role": "admin"})
         
     def tearDown(self):
-        self.app_context.pop()  # Clean up after the test
+        self.app_context.pop()  
 
 
     # Test user registration
